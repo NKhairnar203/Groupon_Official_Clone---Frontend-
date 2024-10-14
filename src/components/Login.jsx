@@ -31,13 +31,16 @@ const Login = () => {
   // this is handle - send request to login backend: and get token
   const handleSignUp = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:8080/api/users/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+    const response = await fetch(
+      "https://groupon-official-clone-backend.onrender.com/api/users/login",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
 
     if (response.ok) {
       const res_data = await response.json();
@@ -55,20 +58,23 @@ const Login = () => {
   };
 
   const getUser = async (userID, token) => {
-    const response = await fetch(`http://localhost:8080/api/users/${userID}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const response = await fetch(
+      `https://groupon-official-clone-backend.onrender.com/api/users/${userID}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
     console.log(response);
     if (response.ok) {
       const userData = await response.json();
       console.log(userData.name.toUpperCase().split("")[0]);
       console.log("hello");
       StoreData(userData);
-      console.log(userData)
+      console.log(userData);
     } else {
       console.log("Error");
     }

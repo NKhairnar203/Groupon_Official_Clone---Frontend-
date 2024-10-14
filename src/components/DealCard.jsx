@@ -1,24 +1,19 @@
 import React, { useState } from "react";
 import { FaHeart, FaRegHeart, FaGift, FaStar } from "react-icons/fa";
-import { useProduct } from "../context/ProductProvider";
 import { Link } from "react-router-dom";
 
 function DealCard({ id, name, image, address, price }) {
   const [liked, setLiked] = useState(false);
-  const { getProduct } = useProduct();
+
   const toggleLike = () => {
     setLiked(!liked);
   };
 
-  // console.log(image, name);
 
   return (
     <Link to={`/deal-detail/${id}`}>
       <div
-        onClick={() => {
-          getProduct(id);
-          console.log(id);
-        }}
+       
         className="max-w-[365px] mx-auto my-4 rounded-lg overflow-hidden bg-white hover:cursor-pointer"
       >
         {/* Image Section with Popular Tag and Like Button */}

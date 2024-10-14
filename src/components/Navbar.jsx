@@ -27,7 +27,9 @@ const Navbar = () => {
     // Fetch products from the backend
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/api/deals");
+        const response = await axios.get(
+          "https://groupon-official-clone-backend.onrender.com/api/deals"
+        );
         setProducts(response.data);
         setFilteredProducts(response.data);
       } catch (error) {

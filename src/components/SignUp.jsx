@@ -25,13 +25,16 @@ const SignUp = () => {
   //  "http://localhost:8080/api/users/register"
   const handleSignUp = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:8080/api/users/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+    const response = await fetch(
+      "https://groupon-official-clone-backend.onrender.com/api/users/register",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
 
     if (response.ok) {
       alert("User created successfully");

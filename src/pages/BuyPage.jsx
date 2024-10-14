@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { useParams } from "react-router-dom";
 import Loading from "../components/Loading";
 
 const BuyPage = () => {
-  const { dealId } = useParams();
+  const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [cardDetails, setCardDetails] = useState({
     cardNumber: "",
@@ -14,11 +13,10 @@ const BuyPage = () => {
   });
 
   useEffect(() => {
-    // Fetch product details from backend
     const fetchProduct = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8080/api/deals/${dealId}`,
+          `https://groupon-official-clone-backend.onrender.com/api/deals/${id}`,
           {
             method: "GET",
             headers: {
@@ -27,13 +25,14 @@ const BuyPage = () => {
           }
         );
         const data = await response.json();
-        setProduct(data.data);
+        console.log(data)
+        setProduct(data);
       } catch (error) {
         console.error("Error fetching product details:", error);
       }
     };
     fetchProduct();
-  }, [dealId]);
+  }, [id]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -49,7 +48,7 @@ const BuyPage = () => {
 
   return (
     <div className="p-8">
-      <h2 className="text-3xl font-bold mb-6">Purchase {product.name}</h2>
+      <h2 className="text-3xl font-bold mb-6">Purchase - {product.name}</h2>
 
       <div className="flex flex-col lg:flex-row gap-8">
         {/* Product Details */}
@@ -72,6 +71,7 @@ const BuyPage = () => {
             <label className="block text-gray-700">Card Number</label>
             <input
               type="text"
+              placeholder="enter 12 Digit Numbers..."
               name="cardNumber"
               value={cardDetails.cardNumber}
               onChange={handleChange}
@@ -85,6 +85,7 @@ const BuyPage = () => {
             <input
               type="text"
               name="cardName"
+              placeholder="Enter Your Name as Your Card"
               value={cardDetails.cardName}
               onChange={handleChange}
               className="w-full mt-2 p-2 border border-gray-300 rounded"

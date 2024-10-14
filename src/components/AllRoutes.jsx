@@ -23,9 +23,9 @@ const AllRoutes = () => {
         <Route
           path="/buy-detail/:id"
           element={
-            <PrivateRoute>
+            // <PrivateRoute>
               <BuyPage />
-            </PrivateRoute>
+            // </PrivateRoute>
           }
         />
       </Routes>

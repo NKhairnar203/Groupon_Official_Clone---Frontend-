@@ -12,12 +12,15 @@ const ProductDetail = () => {
   useEffect(() => {
     const fetchProduct = async (id) => {
       try {
-        const response = await fetch(`http://localhost:8080/api/deals/${id}`, {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        const response = await fetch(
+          `https://groupon-official-clone-backend.onrender.com/api/deals/${id}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
         const data = await response.json();
         setProduct(data);
         console.log(data);
@@ -30,19 +33,7 @@ const ProductDetail = () => {
     fetchProduct(id);
   }, [id]);
 
-  const addToCart = async () => {
-    try {
-      await axios.post("http://localhost:8080/api/cart", {
-        product: product.id,
-        price:product.price,
-        user: product.id,
-      });
-      alert("Product added to cart!");
-    } catch (error) {
-      console.error("Error adding product to cart:", error);
-      alert("Failed to add product to cart.");
-    }
-  };
+ 
 
   if (loading) return <Loading/>;
   if (!product) return <p>Product not found.</p>;

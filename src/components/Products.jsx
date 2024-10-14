@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import DealCard from "./DealCard";
-import { useProduct } from "../context/ProductProvider";
 import Loading from "./Loading";
 
 const Products = () => {
@@ -9,12 +8,15 @@ const Products = () => {
   
   async function fetchData() {
     try {
-      const response = await fetch("http://localhost:8080/api/deals", {
-        method: "get",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        "https://groupon-official-clone-backend.onrender.com/api/deals",
+        {
+          method: "get",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       if (response.ok) {
         const data = await response.json();
