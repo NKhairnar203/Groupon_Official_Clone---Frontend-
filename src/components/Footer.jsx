@@ -1,22 +1,18 @@
-import React from "react";
+
 import {
-  RiArrowLeftRightLine,
-  RiArrowRightLine,
   RiArrowRightSLine,
   RiFacebookBoxLine,
   RiGlobalLine,
-  RiGlobeLine,
   RiInstagramLine,
   RiLinkedinBoxLine,
   RiTwitterXLine,
-  RiXboxLine,
 } from "@remixicon/react";
 
 const Footer = () => {
   return (
     <footer className="w-full bg-[#EDEFF1]">
       <div className="max-w-[1233px] mx-auto py-9">
-        <div className="grid grid-cols-3 mt-4 gap-10 ">
+        <div className="grid grid-cols-3 max-lg:flex max-lg:flex-wrap mt-4 gap-10 px-3">
           <div>
             <h2
               className="text-[#333333] mb-3 text-[18px] font-bold mb
@@ -35,7 +31,7 @@ const Footer = () => {
             >
               Sign up for the latest deals
             </h2>
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2">
               <input
                 className="border border-black rounded-sm px-2 h-10 w-[240px]"
                 type="text"
@@ -66,15 +62,15 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex justify-between mt-16">
-          <ul className="leading-10">
+        <div className="flex flex-wrap lg: justify-between mt-16">
+          <ul className="leading-10 max-lg:px-3">
             <li className="font-bold">Support</li>
             <li>Help Center</li>
             <li>Report Infringement</li>
             <li>Refund Policies</li>
             <li>Merchant Class Action Settlement Notice</li>
           </ul>
-          <ul className="leading-10">
+          <ul className="leading-10 max-lg:px-3">
             <li className="font-bold">Sell on Groupon</li>
             <li>Join Groupon Marketplace</li>
             <li>Run a Groupon Campaign</li>
@@ -83,7 +79,7 @@ const Footer = () => {
             <li>Affiliate Program</li>
             <li>Vendor Code of Conduct</li>
           </ul>
-          <ul className="leading-10">
+          <ul className="leading-10 max-lg:px-3">
             <li className="font-bold">Company</li>
             <li>About Groupon </li>
             <li>Jobs</li>
@@ -91,7 +87,7 @@ const Footer = () => {
             <li>Investor Relations</li>
             <li>Management Team</li>
           </ul>
-          <ul className="leading-10">
+          <ul className="leading-10 max-lg:px-3">
             <li className="font-bold">Quick Links</li>
             <li>Treat Yourself</li>
             <li>Things To Do</li>
@@ -100,11 +96,11 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      <div className="flex justify-center items-center h-20 text-xs bg-white">
+      <div className="flex justify-center items-center h-20 text-xs bg-white max-lg:px-4 text-center">
         <p>
-          © 2024 Groupon, Inc. All Rights Reserved. Terms and Conditions - Privacy
-          Statement - Do Not Sell or Share My Personal Information - Accessibility -
-          Sitemap - Customer - Support - Licenses
+          © 2024 Groupon, Inc. All Rights Reserved. Terms and Conditions -
+          Privacy Statement - Do Not Sell or Share My Personal Information -
+          Accessibility - Sitemap - Customer - Support - Licenses
         </p>
       </div>
     </footer>

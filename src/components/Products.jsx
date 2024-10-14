@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import DealCard from "./DealCard";
+import { useProduct } from "../context/ProductProvider";
+import Loading from "./Loading";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true)
+  
   async function fetchData() {
     try {
-      // Add new product to backend
       const response = await fetch("http://localhost:8080/api/deals", {
         method: "get",
         headers: {
@@ -23,18 +26,23 @@ const Products = () => {
       }
     } catch (error) {
       console.error("Error:", error);
+    }finally{
+      setLoading(false)
     }
   }
 
   useEffect(() => {
     fetchData();
   }, []);
-
+  
+  if (loading) return <Loading />;
+  if (!products) return <p>Product not found.</p>;
   // console.log(products.Data)
   return (
-    <div className="flex gap-5 flex-wrap">
+    <div className="flex justify-center gap-5 flex-wrap">
       {products.map((ele) => (
         <DealCard
+          id={ele._id}
           key={ele._id}
           name={ele.name}
           image={ele.image}

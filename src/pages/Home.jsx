@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <>
       <div className="max-w-[1233px] mx-auto my-5">
-        <div className=" bg-[rgb(243,243,244)] flex justify-between items-center gap-2 divide divide-x-2 p-5 text-xs font-semibold rounded-xl">
+        <div className=" mx-2 bg-[rgb(243,243,244)] max-lg:flex-wrap max-lg:divide-y-2 max-lg:text-center  flex justify-between items-center gap-2 divide  p-5 text-xs font-semibold rounded-xl">
           <div>
             Up to 10% Off Fall Fun! Save on selected Activities, Beauty, Dining
             & More!{" "}
@@ -30,12 +30,22 @@ const Home = () => {
         <TrendingToday />
         {/* <GiftCarousel/> */}
         <div className="flex flex-wrap gap-5 justify-between ">
-          <DealCart />
-          <DealCart />
-          <DealCart />
+          <DealCart
+            image={
+              "https://img.grouponcdn.com/deal/CHniVoPu5w74FuHrzJubBCKGk4X/CH-2048x1229/v1/t300x182.webp"
+            }
+          />
+          <DealCart image={""} />
+          <DealCart
+            image={
+              "https://img.grouponcdn.com/deal/2dqmsBN3BqQxpr73Wd4nZrAibZ28/2d-1440x1440/v1/t300x182.webp"
+            }
+          />
         </div>
         <TwoCard />
-        <h2 className="my-6 text-center font-bold text-3xl">Main Deals For Sale</h2>
+        <h2 className="my-6 text-center font-bold text-3xl">
+          Main Deals For Sale
+        </h2>
         <Products />
       </div>
     </>
